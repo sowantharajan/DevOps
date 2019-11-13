@@ -9,6 +9,7 @@ git clone git@example.com:project-name.git
 git checkout -b $feature_name
 
 3. Write code. Commit changes:
+git add filenames
 git commit -am "My feature is ready"
 
 4. Push your branch to GitLab (Remote):
