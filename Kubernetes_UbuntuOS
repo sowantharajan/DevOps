@@ -1,0 +1,27 @@
+Inline configuration:
+-----------------------------
+
+
+apiVersion: extensions/v1beta1 
+kind: Deployment 
+metadata:
+  labels:
+    io.kompose.service: ubuntu-test
+  name: ubuntu-test 
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: ubuntu-test
+    spec:
+      containers:
+      - image: unxxxxtestregistry.azurecr.io/eis-jdk-8:9330
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]	
+        imagePullPolicy: Always
+        name: ubuntu-test		
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: acr-auth      
+status: {}
